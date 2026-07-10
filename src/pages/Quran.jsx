@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { fetchSurahs } from '../utils/dataFetching'
 import mushafPages from '../data/mushafPages.json'
 import quranData from '../data/quranData.json'
+import tafsirData from '../data/tafsirAlJalalayn.json'
 import { juzData, hizbData, rubData, manzilData } from '../data/divisions'
 
 const BISMILLAH = 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ'
@@ -379,7 +380,14 @@ export default function Quran() {
               </div>
               <div>
                 <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Interpretation (Tafsir)</h4>
-                <p className="text-gray-600 leading-relaxed text-sm">Tafsir for this verse will be available soon.</p>
+                <div className="text-gray-600 leading-relaxed text-sm bg-amber-50 p-4 rounded-lg border border-amber-100">
+                  {tafsirData[`${selectedVerse.surah}:${selectedVerse.verse_number}`] ? (
+                    <p>{tafsirData[`${selectedVerse.surah}:${selectedVerse.verse_number}`]}</p>
+                  ) : (
+                    <p className="italic text-gray-400">Tafsir not available for this verse.</p>
+                  )}
+                </div>
+                <p className="text-xs text-gray-400 mt-2 italic">Source: Tafsir Al-Jalalayn (English)</p>
               </div>
               <div className="flex items-center justify-between border-t border-gray-100 pt-4">
                 <button
