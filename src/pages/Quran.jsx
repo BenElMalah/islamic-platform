@@ -318,7 +318,7 @@ export default function Quran() {
               )}
 
               <div className="p-6 md:p-10">
-                <div className="flex flex-wrap gap-x-1 gap-y-2 justify-center leading-[2.6]" dir="rtl">
+                <div className="leading-[2.6] text-justify" dir="rtl">
                   {pageData?.verses.map((verse) => (
                     <button
                       key={`${verse.surah}-${verse.verse_number}`}
