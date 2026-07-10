@@ -229,6 +229,36 @@ export default function Quran() {
                     Juz {selectedVerse.juz} &bull; Page {selectedVerse.page}
                   </div>
                 )}
+
+                <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+                  <button
+                    onClick={() => {
+                      const idx = verses.findIndex(v => v.numberInSurah === selectedVerse.numberInSurah)
+                      if (idx > 0) setSelectedVerse(verses[idx - 1])
+                    }}
+                    disabled={selectedVerse.numberInSurah === 1}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Prev
+                  </button>
+                  <span className="text-xs text-gray-400">{selectedVerse.numberInSurah} / {verses.length}</span>
+                  <button
+                    onClick={() => {
+                      const idx = verses.findIndex(v => v.numberInSurah === selectedVerse.numberInSurah)
+                      if (idx < verses.length - 1) setSelectedVerse(verses[idx + 1])
+                    }}
+                    disabled={selectedVerse.numberInSurah === verses.length}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-emerald-600 text-white hover:bg-emerald-700"
+                  >
+                    Next
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </>
           )}
