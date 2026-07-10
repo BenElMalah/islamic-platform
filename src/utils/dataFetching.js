@@ -8,7 +8,7 @@ import {
   prominentFigures as mockProminentFigures,
 } from '../data/mockData'
 
-const useMock = !import.meta.env.VITE_SUPABASE_URL
+const useMock = !supabase
 
 export async function fetchSurahs() {
   if (useMock) return mockSurahs
