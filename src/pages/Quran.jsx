@@ -12,26 +12,26 @@ const surahNames = {
   1:{ar:'الفاتحة',en:'Al-Fatihah',tr:'The Opening'},2:{ar:'البقرة',en:'Al-Baqarah',tr:'The Cow'},3:{ar:'آل عمران',en:'Ali Imran',tr:'Family of Imran'},4:{ar:'النساء',en:'An-Nisa',tr:'The Women'},5:{ar:'المائدة',en:'Al-Ma\'idah',tr:'The Table Spread'},6:{ar:'الأنعام',en:'Al-An\'am',tr:'The Cattle'},7:{ar:'الأعراف',en:'Al-A\'raf',tr:'The Heights'},8:{ar:'الأنفال',en:'Al-Anfal',tr:'The Spoils of War'},9:{ar:'التوبة',en:'At-Tawbah',tr:'The Repentance'},10:{ar:'يونس',en:'Yunus',tr:'Jonah'},11:{ar:'هود',en:'Hud',tr:'Hud'},12:{ar:'يوسف',en:'Yusuf',tr:'Joseph'},13:{ar:'الرعد',en:'Ar-Ra\'d',tr:'The Thunder'},14:{ar:'إبراهيم',en:'Ibrahim',tr:'Abraham'},15:{ar:'الحجر',en:'Al-Hijr',tr:'The Rocky Tract'},16:{ar:'النحل',en:'An-Nahl',tr:'The Bee'},17:{ar:'الإسراء',en:'Al-Isra',tr:'The Night Journey'},18:{ar:'الكهف',en:'Al-Kahf',tr:'The Cave'},19:{ar:'مريم',en:'Maryam',tr:'Mary'},20:{ar:'طه',en:'Taha',tr:'Taha'},21:{ar:'الأنبياء',en:'Al-Anbiya',tr:'The Prophets'},22:{ar:'الحج',en:'Al-Hajj',tr:'The Pilgrimage'},23:{ar:'المؤمنون',en:'Al-Mu\'minun',tr:'The Believers'},24:{ar:'النور',en:'An-Nur',tr:'The Light'},25:{ar:'الفرقان',en:'Al-Furqan',tr:'The Criterion'},26:{ar:'الشعراء',en:'Ash-Shu\'ara',tr:'The Poets'},27:{ar:'النمل',en:'An-Naml',tr:'The Ant'},28:{ar:'القصص',en:'Al-Qasas',tr:'The Stories'},29:{ar:'العنكبوت',en:'Al-Ankabut',tr:'The Spider'},30:{ar:'الروم',en:'Ar-Rum',tr:'The Romans'},31:{ar:'لقمان',en:'Luqman',tr:'Luqman'},32:{ar:'السجدة',en:'As-Sajdah',tr:'The Prostration'},33:{ar:'الأحزاب',en:'Al-Ahzab',tr:'The Combined Forces'},34:{ar:'سبأ',en:'Saba',tr:'Sheba'},35:{ar:'فاطر',en:'Fatir',tr:'The Originator'},36:{ar:'يس',en:'Ya-Sin',tr:'Ya-Sin'},37:{ar:'الصافات',en:'As-Saffat',tr:'Those Who Set The Ranks'},38:{ar:'ص',en:'Sad',tr:'The Letter Sad'},39:{ar:'الزمر',en:'Az-Zumar',tr:'The Troops'},40:{ar:'غافر',en:'Ghafir',tr:'The Forgiver'},41:{ar:'فصلت',en:'Fussilat',tr:'Explained In Detail'},42:{ar:'الشورى',en:'Ash-Shura',tr:'The Consultation'},43:{ar:'الزخرف',en:'Az-Zukhruf',tr:'The Ornaments Of Gold'},44:{ar:'الدخان',en:'Ad-Dukhan',tr:'The Smoke'},45:{ar:'الجاثية',en:'Al-Jathiyah',tr:'The Crouching'},46:{ar:'الأحقاف',en:'Al-Ahqaf',tr:'The Wind-Curved Sandhills'},47:{ar:'محمد',en:'Muhammad',tr:'Muhammad'},48:{ar:'الفتح',en:'Al-Fath',tr:'The Victory'},49:{ar:'الحجرات',en:'Al-Hujurat',tr:'The Rooms'},50:{ar:'ق',en:'Qaf',tr:'The Letter Qaf'},51:{ar:'الذاريات',en:'Adh-Dhariyat',tr:'The Winnowing Winds'},52:{ar:'الطور',en:'At-Tur',tr:'The Mount'},53:{ar:'النجم',en:'An-Najm',tr:'The Star'},54:{ar:'القمر',en:'Al-Qamar',tr:'The Moon'},55:{ar:'الرحمن',en:'Ar-Rahman',tr:'The Beneficent'},56:{ar:'الواقعة',en:'Al-Waqi\'ah',tr:'The Inevitable'},57:{ar:'الحديد',en:'Al-Hadid',tr:'The Iron'},58:{ar:'المجادلة',en:'Al-Mujadilah',tr:'The Pleading Woman'},59:{ar:'الحشر',en:'Al-Hashr',tr:'The Exile'},60:{ar:'الممتحنة',en:'Al-Mumtahanah',tr:'She That Is To Be Examined'},61:{ar:'الصف',en:'As-Saff',tr:'The Ranks'},62:{ar:'الجمعة',en:'Al-Jumu\'ah',tr:'Friday'},63:{ar:'المنافقون',en:'Al-Munafiqun',tr:'The Hypocrites'},64:{ar:'التغابن',en:'At-Taghabun',tr:'Mutual Disillusion'},65:{ar:'الطلاق',en:'At-Talaq',tr:'Divorce'},66:{ar:'التحريم',en:'At-Tahrim',tr:'The Prohibition'},67:{ar:'الملك',en:'Al-Mulk',tr:'The Sovereignty'},68:{ar:'القلم',en:'Al-Qalam',tr:'The Pen'},69:{ar:'الحاقة',en:'Al-Haqqah',tr:'The Reality'},70:{ar:'المعارج',en:'Al-Ma\'arij',tr:'The Ascending Stairways'},71:{ar:'نوح',en:'Nuh',tr:'Noah'},72:{ar:'الجن',en:'Al-Jinn',tr:'The Jinn'},73:{ar:'المزمل',en:'Al-Muzzammil',tr:'The Enshrouded One'},74:{ar:'المدثر',en:'Al-Muddaththir',tr:'The Cloaked One'},75:{ar:'القيامة',en:'Al-Qiyamah',tr:'The Resurrection'},76:{ar:'الإنسان',en:'Al-Insan',tr:'Man'},77:{ar:'المرسلات',en:'Al-Mursalat',tr:'The Emissaries'},78:{ar:'النبأ',en:'An-Naba',tr:'The Tidings'},79:{ar:'النازعات',en:'An-Nazi\'at',tr:'Those Who Drag Forth'},80:{ar:'عبس',en:'Abasa',tr:'He Frowned'},81:{ar:'التكوير',en:'At-Takwir',tr:'The Overthrowing'},82:{ar:'الانفطار',en:'Al-Infitar',tr:'The Cleaving'},83:{ar:'المطففين',en:'Al-Mutaffifin',tr:'The Defrauding'},84:{ar:'الانشقاق',en:'Al-Inshiqaq',tr:'The Sundering'},85:{ar:'البروج',en:'Al-Buruj',tr:'The Mansions Of The Stars'},86:{ar:'الطارق',en:'At-Tariq',tr:'The Nightcomer'},87:{ar:'الأعلى',en:'Al-A\'la',tr:'The Most High'},88:{ar:'الغاشية',en:'Al-Ghashiyah',tr:'The Overwhelming'},89:{ar:'الفجر',en:'Al-Fajr',tr:'The Dawn'},90:{ar:'البلد',en:'Al-Balad',tr:'The City'},91:{ar:'الشمس',en:'Ash-Shams',tr:'The Sun'},92:{ar:'الليل',en:'Al-Layl',tr:'The Night'},93:{ar:'الضحى',en:'Ad-Duhaa',tr:'The Morning Hours'},94:{ar:'الشرح',en:'Ash-Sharh',tr:'The Relief'},95:{ar:'التين',en:'At-Tin',tr:'The Fig'},96:{ar:'العلق',en:'Al-Alaq',tr:'The Clot'},97:{ar:'القدر',en:'Al-Qadr',tr:'The Power'},98:{ar:'البينة',en:'Al-Bayyinah',tr:'The Clear Proof'},99:{ar:'الزلزلة',en:'Az-Zalzalah',tr:'The Earthquake'},100:{ar:'العاديات',en:'Al-Adiyat',tr:'The Courser'},101:{ar:'القارعة',en:'Al-Qari\'ah',tr:'The Calamity'},102:{ar:'التكاثر',en:'At-Takathur',tr:'The Rivalry In Worldly Increase'},103:{ar:'العصر',en:'Al-Asr',tr:'The Declining Day'},104:{ar:'الهمزة',en:'Al-Humazah',tr:'The Traducer'},105:{ar:'الفيل',en:'Al-Fil',tr:'The Elephant'},106:{ar:'قريش',en:'Quraysh',tr:'Quraysh'},107:{ar:'الماعون',en:'Al-Ma\'un',tr:'The Small Kindnesses'},108:{ar:'الكوثر',en:'Al-Kawthar',tr:'The Abundance'},109:{ar:'الكافرون',en:'Al-Kafirun',tr:'The Disbelievers'},110:{ar:'النصر',en:'An-Nasr',tr:'The Divine Support'},111:{ar:'المسد',en:'Al-Masad',tr:'The Palm Fiber'},112:{ar:'الإخلاص',en:'Al-Ikhlas',tr:'The Sincerity'},113:{ar:'الفلق',en:'Al-Falaq',tr:'The Daybreak'},114:{ar:'الناس',en:'An-Nas',tr:'Mankind'},
 }
 
-const allVerses = useMemo(() => {
-  const verses = []
-  for (const [surahNum, surahVerses] of Object.entries(quranData.verses)) {
-    for (const v of surahVerses) {
-      verses.push({
-        surah: Number(surahNum),
-        surahName: surahNames[Number(surahNum)]?.en || `Surah ${surahNum}`,
-        surahNameAr: surahNames[Number(surahNum)]?.ar || '',
-        verse_number: v.verse_number,
-        text_arabic: v.text_arabic,
-        text_english: v.text_english,
-        page: v.page,
-        juz: v.juz,
-      })
-    }
-  }
-  return verses
-}, [])
-
 export default function Quran() {
+  const allVerses = useMemo(() => {
+    const verses = []
+    for (const [surahNum, surahVerses] of Object.entries(quranData.verses)) {
+      for (const v of surahVerses) {
+        verses.push({
+          surah: Number(surahNum),
+          surahName: surahNames[Number(surahNum)]?.en || `Surah ${surahNum}`,
+          surahNameAr: surahNames[Number(surahNum)]?.ar || '',
+          verse_number: v.verse_number,
+          text_arabic: v.text_arabic,
+          text_english: v.text_english,
+          page: v.page,
+          juz: v.juz,
+        })
+      }
+    }
+    return verses
+  }, [])
+
   const [surahs, setSurahs] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedVerse, setSelectedVerse] = useState(null)
