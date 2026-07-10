@@ -204,43 +204,26 @@ export default function Quran() {
                   )}
 
                   <div className="p-6 md:p-10">
-                    <div className="space-y-1">
-                      {verses.map((verse, index) => (
-                        <div key={verse.numberInSurah}>
-                          {index > 0 && index % 5 === 0 && (
-                            <div className="flex items-center justify-center py-4">
-                              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-200 to-transparent"></div>
-                              <span className="px-3 text-xs text-emerald-400">•</span>
-                              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-200 to-transparent"></div>
-                            </div>
-                          )}
-                          <button
-                            onClick={() => setSelectedVerse(selectedVerse?.numberInSurah === verse.numberInSurah ? null : verse)}
-                            className={`w-full text-left py-4 px-4 rounded-xl transition-all duration-200 group ${
-                              selectedVerse?.numberInSurah === verse.numberInSurah
-                                ? 'bg-emerald-50 shadow-sm'
-                                : 'hover:bg-gray-50'
-                            }`}
-                          >
-                            <div className="flex items-start gap-4">
-                              <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-800 rounded-full text-sm font-bold group-hover:from-emerald-200 group-hover:to-emerald-300 transition-colors border border-emerald-300" style={{clipPath:'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'}}>
-                                {verse.numberInSurah}
-                              </span>
-                              <div className="flex-1">
-                                <p className="text-2xl md:text-3xl text-gray-900 leading-[2.2] mb-3 text-right" dir="rtl" style={{fontFamily:'Amiri,serif'}}>
-                                  {verse.text}
-                                </p>
-                                <p className="text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-3">
-                                  {verse.translation}
-                                </p>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
+                    <div className="flex flex-wrap gap-x-1 gap-y-2 justify-center leading-[2.6]" dir="rtl">
+                      {verses.map((verse) => (
+                        <button
+                          key={verse.numberInSurah}
+                          onClick={() => setSelectedVerse(selectedVerse?.numberInSurah === verse.numberInSurah ? null : verse)}
+                          className={`inline items-center transition-all duration-200 ${
+                            selectedVerse?.numberInSurah === verse.numberInSurah
+                              ? 'bg-emerald-100 rounded-lg px-1'
+                              : 'hover:bg-emerald-50 rounded-lg px-1'
+                          }`}
+                        >
+                          <span className="text-2xl md:text-3xl text-gray-900" style={{fontFamily:'Amiri,serif'}}>{verse.text}</span>
+                          <span className="inline-flex items-center justify-center w-8 h-8 mx-0.5 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 text-white text-xs font-bold shadow-sm align-middle relative -top-0.5">
+                            {verse.numberInSurah}
+                          </span>
+                        </button>
                       ))}
                     </div>
 
-                    <div className="mt-8 text-center">
+                    <div className="mt-10 text-center">
                       <div className="flex items-center justify-center gap-2 text-emerald-600">
                         <span className="text-2xl" style={{fontFamily:'Amiri,serif'}}>۞</span>
                         <span className="text-sm font-medium">End of {selectedSurah.englishName}</span>
