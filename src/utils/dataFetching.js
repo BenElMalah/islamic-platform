@@ -1,66 +1,95 @@
 import { supabase } from '../supabaseClient'
+import quranData from '../data/quranData.json'
 import {
-  surahs as mockSurahs,
-  verses as mockVerses,
   hadithCategories as mockHadithCategories,
   hadiths as mockHadiths,
   historicalEvents as mockHistoricalEvents,
   prominentFigures as mockProminentFigures,
 } from '../data/mockData'
 
-const useMock = !supabase
+const useSupabase = !!supabase
 
 export async function fetchSurahs() {
-  if (useMock) return mockSurahs
-  const { data, error } = await supabase.from('surahs').select('*').order('number')
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase.from('surahs').select('*').order('number')
+    if (error) throw error
+    return data
+  }
+  return quranData.surahs.map(s => ({
+    number: s.number,
+    name: s.name_arabic,
+    englishName: s.name_english,
+    englishNameTranslation: s.name_translation,
+    verseCount: s.total_verses,
+    revelationType: s.revelation_type,
+  }))
 }
 
 export async function fetchVersesBySurah(surahNumber) {
-  if (useMock) return mockVerses.filter(v => v.surah_id === surahNumber)
-  const { data, error } = await supabase
-    .from('verses')
-    .select('*')
-    .eq('surah_id', surahNumber)
-    .order('verse_number')
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase
+      .from('verses')
+      .select('*')
+      .eq('surah_id', surahNumber)
+      .order('verse_number')
+    if (error) throw error
+    return data
+  }
+  const verses = quranData.verses[String(surahNumber)] || []
+  return verses.map(v => ({
+    number: v.verse_number,
+    numberInSurah: v.verse_number,
+    text: v.text_arabic,
+    translation: v.text_english,
+    juz: v.juz,
+    page: v.page,
+    tafsir: null,
+    revelationContext: null,
+    tajweedRules: null,
+  }))
 }
 
 export async function fetchHadithCategories() {
-  if (useMock) return mockHadithCategories
-  const { data, error } = await supabase.from('hadith_categories').select('*')
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase.from('hadith_categories').select('*')
+    if (error) throw error
+    return data
+  }
+  return mockHadithCategories
 }
 
 export async function fetchHadithsByCategory(categoryId) {
-  if (useMock) return mockHadiths.filter(h => h.category_id === categoryId)
-  const { data, error } = await supabase
-    .from('hadiths')
-    .select('*')
-    .eq('category_id', categoryId)
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase
+      .from('hadiths')
+      .select('*')
+      .eq('category_id', categoryId)
+    if (error) throw error
+    return data
+  }
+  return mockHadiths.filter(h => h.category_id === categoryId)
 }
 
 export async function fetchHistoricalEvents() {
-  if (useMock) return mockHistoricalEvents
-  const { data, error } = await supabase
-    .from('historical_events')
-    .select('*')
-    .order('hijri_year')
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase
+      .from('historical_events')
+      .select('*')
+      .order('hijri_year')
+    if (error) throw error
+    return data
+  }
+  return mockHistoricalEvents
 }
 
 export async function fetchProminentFigures() {
-  if (useMock) return mockProminentFigures
-  const { data, error } = await supabase
-    .from('prominent_figures')
-    .select('*')
-    .order('name')
-  if (error) throw error
-  return data
+  if (useSupabase) {
+    const { data, error } = await supabase
+      .from('prominent_figures')
+      .select('*')
+      .order('name')
+    if (error) throw error
+    return data
+  }
+  return mockProminentFigures
 }
