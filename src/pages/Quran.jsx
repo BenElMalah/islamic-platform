@@ -124,6 +124,36 @@ export default function Quran() {
                 <p className="text-gray-500">Select a Surah from the sidebar to begin reading</p>
               </div>
             )}
+            {selectedSurah && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    const idx = surahs.findIndex(s => s.number === selectedSurah.number)
+                    if (idx > 0) setSelectedSurah(surahs[idx - 1])
+                  }}
+                  disabled={selectedSurah.number === 1}
+                  className="p-2 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-emerald-700 hover:bg-emerald-100"
+                  title="Previous Surah"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => {
+                    const idx = surahs.findIndex(s => s.number === selectedSurah.number)
+                    if (idx < surahs.length - 1) setSelectedSurah(surahs[idx + 1])
+                  }}
+                  disabled={selectedSurah.number === 114}
+                  className="p-2 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-emerald-700 hover:bg-emerald-100"
+                  title="Next Surah"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="flex-1 overflow-y-auto p-6">
