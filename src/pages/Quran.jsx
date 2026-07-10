@@ -182,19 +182,50 @@ export default function Quran() {
         <div className={`${selectedVerse ? 'w-96' : 'w-0'} transition-all duration-300 overflow-hidden border-l border-gray-200 bg-white flex flex-col`}>
           {selectedVerse && (
             <>
-              <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-emerald-50">
-                <div>
-                  <h3 className="font-bold text-emerald-800">Verse {selectedVerse.numberInSurah}</h3>
-                  <p className="text-sm text-gray-500">{selectedSurah?.englishName}</p>
+              <div className="px-6 py-4 border-b border-gray-200 bg-emerald-50">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h3 className="font-bold text-emerald-800">Verse {selectedVerse.numberInSurah}</h3>
+                    <p className="text-sm text-gray-500">{selectedSurah?.englishName}</p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedVerse(null)}
+                    className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-emerald-100 transition-colors text-gray-500 hover:text-gray-700"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
-                <button
-                  onClick={() => setSelectedVerse(null)}
-                  className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-emerald-100 transition-colors text-gray-500 hover:text-gray-700"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={() => {
+                      const idx = surahs.findIndex(s => s.number === selectedSurah.number)
+                      if (idx > 0) setSelectedSurah(surahs[idx - 1])
+                    }}
+                    disabled={selectedSurah?.number === 1}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-white text-emerald-700 hover:bg-emerald-100 border border-emerald-200"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Prev Surah
+                  </button>
+                  <span className="text-xs text-emerald-600 font-medium">{selectedSurah?.number} / 114</span>
+                  <button
+                    onClick={() => {
+                      const idx = surahs.findIndex(s => s.number === selectedSurah.number)
+                      if (idx < surahs.length - 1) setSelectedSurah(surahs[idx + 1])
+                    }}
+                    disabled={selectedSurah?.number === 114}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-white text-emerald-700 hover:bg-emerald-100 border border-emerald-200"
+                  >
+                    Next Surah
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
