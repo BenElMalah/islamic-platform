@@ -1,5 +1,4 @@
 import { supabase } from '../supabaseClient'
-import quranData from '../data/quranData.json'
 import {
   hadithCategories as mockHadithCategories,
   hadiths as mockHadiths,
@@ -9,12 +8,21 @@ import {
 
 const useSupabase = !!supabase
 
+let _quranDataCache = null
+async function getQuranData() {
+  if (!_quranDataCache) {
+    _quranDataCache = (await import('../data/quranData.json')).default
+  }
+  return _quranDataCache
+}
+
 export async function fetchSurahs() {
   if (useSupabase) {
     const { data, error } = await supabase.from('surahs').select('*').order('number')
     if (error) throw error
     return data
   }
+  const quranData = await getQuranData()
   return quranData.surahs.map(s => ({
     number: s.number,
     name: s.name_arabic,
@@ -35,6 +43,7 @@ export async function fetchVersesBySurah(surahNumber) {
     if (error) throw error
     return data
   }
+  const quranData = await getQuranData()
   const verses = quranData.verses[String(surahNumber)] || []
   return verses.map(v => ({
     number: v.verse_number,
