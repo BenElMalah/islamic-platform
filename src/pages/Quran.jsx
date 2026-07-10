@@ -318,22 +318,23 @@ export default function Quran() {
               )}
 
               <div className="p-6 md:p-10">
-                <div className="leading-[2.6] text-justify" dir="rtl">
+                <div className="leading-[2.8] text-[28px]" dir="rtl" style={{fontFamily:'Amiri,serif', textAlign:'justify', textAlignLast:'center', wordSpacing:'0.15em'}}>
                   {pageData?.verses.map((verse) => (
-                    <button
-                      key={`${verse.surah}-${verse.verse_number}`}
-                      onClick={() => setSelectedVerse(selectedVerse?.surah === verse.surah && selectedVerse?.verse_number === verse.verse_number ? null : verse)}
-                      className={`inline items-center transition-all duration-200 ${
-                        selectedVerse?.surah === verse.surah && selectedVerse?.verse_number === verse.verse_number
-                          ? 'bg-emerald-100 rounded-lg px-1'
-                          : 'hover:bg-emerald-50 rounded-lg px-1'
-                      }`}
-                    >
-                      <span className="text-2xl md:text-3xl text-gray-900" style={{fontFamily:'Amiri,serif'}}>{verse.text_arabic}</span>
-                      <span className="inline-flex items-center justify-center w-8 h-8 mx-0.5 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 text-white text-xs font-bold shadow-sm align-middle relative -top-0.5">
-                        {verse.verse_number}
-                      </span>
-                    </button>
+                    <span key={`${verse.surah}-${verse.verse_number}`} className="inline">
+                      <button
+                        onClick={() => setSelectedVerse(selectedVerse?.surah === verse.surah && selectedVerse?.verse_number === verse.verse_number ? null : verse)}
+                        className={`inline transition-all duration-200 ${
+                          selectedVerse?.surah === verse.surah && selectedVerse?.verse_number === verse.verse_number
+                            ? 'bg-emerald-100 rounded px-0.5'
+                            : 'hover:bg-emerald-50 rounded px-0.5'
+                        }`}
+                      >
+                        {verse.text_arabic}
+                        <span className="inline-flex items-center justify-center w-7 h-7 mx-0.5 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 text-white text-[11px] font-bold shadow-sm align-middle relative -top-0.5" style={{fontFamily:'Inter,sans-serif'}}>
+                          {verse.verse_number}
+                        </span>
+                      </button>
+                    </span>
                   ))}
                 </div>
               </div>
