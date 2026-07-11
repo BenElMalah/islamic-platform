@@ -123,17 +123,11 @@ export default function Figures() {
                       {figure.type}
                     </span>
                   </div>
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
-                    <span className="mr-2">
-                      Born: {figure.birthDate || 'Unknown'}
-                    </span>
-                    <span>|</span>
-                    <span className="ml-2">
-                      Died: {figure.deathDate || 'Unknown'}
-                    </span>
+                  <div className="text-sm text-gray-500 mb-3">
+                    <span>{figure.birth_death_date || 'Unknown'}</span>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                    {figure.shortBio}
+                    {figure.biography}
                   </p>
                   <div className="mt-4 flex items-center text-emerald-600 text-sm font-medium">
                     <span>Read more</span>
@@ -216,22 +210,16 @@ export default function Figures() {
                     </button>
                   </div>
 
-                  <div className="flex items-center text-sm text-gray-500 mb-4 space-x-3">
-                    <span>
-                      Born: {selectedFigure.birthDate || 'Unknown'}
-                    </span>
-                    <span className="text-gray-300">|</span>
-                    <span>
-                      Died: {selectedFigure.deathDate || 'Unknown'}
-                    </span>
+                  <div className="text-sm text-gray-500 mb-4">
+                    <span>{selectedFigure.birth_death_date || 'Unknown'}</span>
                   </div>
 
                   <div className="border-t border-gray-100 pt-4">
                     <h4 className="text-sm font-semibold text-gray-900 mb-2">
                       Biography
                     </h4>
-                    <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                      {selectedFigure.biography || selectedFigure.shortBio}
+                    <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm max-h-60 overflow-y-auto">
+                      {selectedFigure.biography}
                     </p>
                   </div>
 
