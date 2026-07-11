@@ -235,25 +235,19 @@ export default function Figures() {
                     </p>
                   </div>
 
-                  {selectedFigure.contributions && (
+                  {selectedFigure.achievements && selectedFigure.achievements.length > 0 && (
                     <div className="mt-4 border-t border-gray-100 pt-4">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                        Key Contributions
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                        Key Achievements
                       </h4>
-                      <p className="text-gray-700 leading-relaxed">
-                        {selectedFigure.contributions}
-                      </p>
-                    </div>
-                  )}
-
-                  {selectedFigure.notableWorks && (
-                    <div className="mt-4 border-t border-gray-100 pt-4">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                        Notable Works
-                      </h4>
-                      <p className="text-gray-700 leading-relaxed">
-                        {selectedFigure.notableWorks}
-                      </p>
+                      <ul className="space-y-2">
+                        {selectedFigure.achievements.map((achievement, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="flex-shrink-0 w-5 h-5 flex items-center justify-center bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold mt-0.5">{index + 1}</span>
+                            <span className="text-gray-700 leading-relaxed text-sm">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
                 </div>
